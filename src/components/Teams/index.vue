@@ -1,6 +1,6 @@
 <template>
   <body>
-    <Teamlist v-loading="loading" :teams.sync="teams"/>
+    <Teamlist :loading.sync="loading" :teams.sync="teams"/>
   </body>
 </template>
 

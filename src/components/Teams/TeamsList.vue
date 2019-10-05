@@ -1,7 +1,7 @@
 <template>
   <div class="teams">
     <h1>Teams</h1>
-    <el-row :gutter="20" class="teams__list">
+    <el-row v-loading="loading" :gutter="20" class="teams__list">
       <el-col
         v-for="team in teams"
         class="team__card-wrapper"
@@ -39,6 +39,10 @@
       teams:{
         type: Array,
         default: () => []
+      },
+      loading: {
+        type: Boolean,
+        default: false
       }
     }
   }

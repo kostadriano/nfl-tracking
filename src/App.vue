@@ -1,11 +1,10 @@
 <template>
   <div id="app" v-loading="loading">
-    <Teams />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Teams from './components/Teams'
   import { mapActions } from 'vuex'
 
   export default {
@@ -13,9 +12,6 @@
       return {
         loading: true
       }
-    },
-    components: {
-      Teams
     },
     async created() {
       await this.getTeams()

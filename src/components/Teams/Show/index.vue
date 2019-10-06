@@ -4,6 +4,13 @@
       <el-header height="inherit">
         <Header :team.sync="team" />
       </el-header>
+      <el-main>
+        <el-tabs>
+          <el-tab-pane label="About">
+            <About :team.sync="team"/>
+          </el-tab-pane>
+        </el-tabs>
+      </el-main>
     </el-container>
   </div>
 </template>
@@ -11,6 +18,7 @@
 <script>
   import { mapGetters } from 'vuex'
   import Header from './Header'
+  import About from './About'
 
   export default {
     data() {
@@ -30,7 +38,8 @@
       }
     },
     components: {
-      Header
+      Header,
+      About
     },
     created (){
       this.team = this.getTeam(this.id)

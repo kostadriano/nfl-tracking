@@ -12,7 +12,9 @@
         :lg="6"
         :xl="4"
       >
-        <TeamCard :team="team"/>
+        <router-link :to="`teams/${team.Key}`">
+          <TeamCard :team="team"/>
+        </router-link>
       </el-col>
     </el-row>
   </div>
@@ -25,6 +27,10 @@
 
   .team__card-wrapper {
     padding: 10px;
+  }
+
+  .team__card-wrapper a {
+    text-decoration: none;
   }
 </style>
 

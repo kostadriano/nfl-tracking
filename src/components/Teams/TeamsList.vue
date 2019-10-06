@@ -1,7 +1,7 @@
 <template>
   <div class="teams">
     <h1>Teams</h1>
-    <el-row v-loading="loading" :gutter="20" class="teams__list">
+    <el-row :gutter="20" class="teams__list">
       <el-col
         v-for="team in teams"
         class="team__card-wrapper"
@@ -30,20 +30,16 @@
 
 <script>
   import TeamCard from './TeamCard'
+  import { mapGetters } from 'vuex'
 
   export default {
     components: {
       TeamCard
     },
-    props:{
-      teams:{
-        type: Array,
-        default: () => []
-      },
-      loading: {
-        type: Boolean,
-        default: false
-      }
+    computed: {
+      ...mapGetters({
+        teams: 'getTeams'
+      })
     }
   }
 </script>

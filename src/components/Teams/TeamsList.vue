@@ -1,6 +1,8 @@
 <template>
   <div class="teams">
-    <h1>Teams</h1>
+    <h1 class="teams__title">
+      Teams
+    </h1>
     <el-row :gutter="20" class="teams__list">
       <el-col
         v-for="team in teams"
@@ -31,6 +33,10 @@
 
   .team__card-wrapper a {
     text-decoration: none;
+  }
+
+  .teams__title {
+    margin-top: 0
   }
 </style>
 

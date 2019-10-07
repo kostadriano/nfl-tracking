@@ -1,12 +1,4 @@
-import httpService from '../services/httpService';
+import * as Teams from '../models/teams'
 
-export const getAllTeams = async () => {
-  try {
-    const { data } = await httpService.get('Teams')
+export const getAllTeams = async () => await Teams.getAllTeams()
 
-    return data
-  }
-  catch (error) {
-    console.error(error)
-  }
-}

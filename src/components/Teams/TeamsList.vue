@@ -1,7 +1,9 @@
 <template>
   <div class="teams">
-    <h1>Teams</h1>
-    <el-row v-loading="loading" :gutter="20" class="teams__list">
+    <h1 class="teams__title">
+      Teams
+    </h1>
+    <el-row :gutter="20" class="teams__list">
       <el-col
         v-for="team in teams"
         class="team__card-wrapper"
@@ -12,7 +14,9 @@
         :lg="6"
         :xl="4"
       >
-        <TeamCard :team="team"/>
+        <router-link :to="`teams/${team.Key}`">
+          <TeamCard :team="team"/>
+        </router-link>
       </el-col>
     </el-row>
   </div>
@@ -26,24 +30,28 @@
   .team__card-wrapper {
     padding: 10px;
   }
+
+  .team__card-wrapper a {
+    text-decoration: none;
+  }
+
+  .teams__title {
+    margin-top: 0
+  }
 </style>
 
 <script>
   import TeamCard from './TeamCard'
+  import { mapGetters } from 'vuex'
 
   export default {
     components: {
       TeamCard
     },
-    props:{
-      teams:{
-        type: Array,
-        default: () => []
-      },
-      loading: {
-        type: Boolean,
-        default: false
-      }
+    computed: {
+      ...mapGetters({
+        teams: 'getTeams'
+      })
     }
   }
 </script>

@@ -1,15 +1,39 @@
 <template>
   <div id="app">
-    <Teams />
+    <el-menu :router="true" class="el-menu-demo" :default-active="activeLink" mode="horizontal">
+      <el-menu-item index="/teams">Teams</el-menu-item>
+    </el-menu>
+    <div v-loading="true" v-if="loading" />
+    <router-view v-else />
   </div>
 </template>
 
 <script>
-  import Teams from './components/Teams'
+  import { mapActions } from 'vuex'
 
   export default {
-    components: {
-      Teams
+    data() {
+      return {
+        loading: true,
+        activeLink: null
+      }
+    },
+    mounted () {
+      this.activeLink = this.$route.path
+    },
+    watch: {
+      $route (newVal, oldVal) {
+        this.activeLink = newVal.path
+      }
+    },
+    async created() {
+      await this.getTeams()
+      this.loading = false
+    },
+    methods: {
+      ...mapActions([
+        'getTeams'
+      ]),
     }
   }
 </script>

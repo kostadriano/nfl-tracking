@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <el-container>
-      <el-header height="inherit">
-        <Header :team.sync="team" />
-      </el-header>
-      <el-main>
-        <el-tabs>
-          <el-tab-pane label="About">
-            <About :team.sync="team"/>
-          </el-tab-pane>
-        </el-tabs>
-      </el-main>
-    </el-container>
-  </div>
+  <el-container class="team__show">
+    <el-header height="inherit" class="team__show-header">
+      <Header :team.sync="team" />
+    </el-header>
+    <el-main>
+      <el-tabs type="border-card">
+        <el-tab-pane label="About">
+          <About :team.sync="team"/>
+        </el-tab-pane>
+      </el-tabs>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -46,3 +44,13 @@
     }
   }
 </script>
+
+<style>
+  .team__show {
+    padding: 20px 40px 40px
+  }
+
+  .team__show-header {
+    width: 100%
+  }
+</style>

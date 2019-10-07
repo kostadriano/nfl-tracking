@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="team__info">
-      <p v-for="key in Object.keys(fields)">
-        <span style="font-weight: bold">{{fields[key]}}</span>: <span>{{team[key]}}</span>
-      </p>
+  <div class="team__info">
+    <p v-for="key in Object.keys(fields)">
+      <span style="font-weight: bold">{{fields[key]}}</span>: <span>{{team[key]}}</span>
+    </p>
 
-      <el-divider/>
-      <h2>
-        Stadium
-      </h2>
+    <el-divider/>
+    <h2>
+      Stadium
+    </h2>
 
-      <p v-for="key in Object.keys(stadiumFields)">
-        <span style="font-weight: bold">{{stadiumFields[key]}}</span>: <span>{{team.StadiumDetails[key]}}</span>
-      </p>
-    </div>
+    <p v-for="key in Object.keys(stadiumFields)">
+      <span style="font-weight: bold">{{stadiumFields[key]}}</span>: <span>{{team.StadiumDetails[key]}}</span>
+    </p>
   </div>
 </template>
 
@@ -38,6 +36,7 @@
 
 <style>
   .team__info {
-    text-align: start
+    text-align: start;
+    padding: 0 20px 20px
   }
 </style>

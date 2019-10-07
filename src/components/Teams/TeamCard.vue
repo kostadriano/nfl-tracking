@@ -1,20 +1,21 @@
 <template>
-  <el-card class="team" shadow="hover" :title="team.FanDuelName">
-    <img v-bind:src="team.WikipediaLogoUrl" class="team__logo">
-    <div class="team__info">
-      <span class="team__name">{{team.FanDuelName}}</span>
+  <el-card class="team-card" shadow="hover" :title="team.FanDuelName">
+    <img v-bind:src="team.WikipediaLogoUrl" class="team-card__logo">
+
+    <div class="team-card__name">
+      {{team.FanDuelName}}
     </div>
   </el-card>
 </template>
 
 <style>
-  .team {
+  .team-card {
     height: 100%;
     cursor: pointer;
     border-radius: 5px;
   }
 
-  .team__logo {
+  .team-card__logo {
     display: block;
     width:  150px;
     height: 150px;
@@ -24,11 +25,8 @@
     margin: auto;
   }
 
-  .team__info {
-    margin: 10px auto;
-  }
-
-  .team__name {
+  .team-card__name {
+    margin: 15px auto;
     font-weight: bold
   }
 </style>

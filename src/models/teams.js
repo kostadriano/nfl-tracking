@@ -1,6 +1,8 @@
-import httpService from '../services/httpService';
+import { httpService, nflApiService } from '../services/httpService';
+import newId from 'uuid/v4'
 
 export const fields = {
+  FanDuelName: "Duel Name",
   City: "City",
   Name: "Name",
   Conference: "Conference",
@@ -28,8 +30,19 @@ export const resetFields = (object) => Object.keys(object)
 
 export const getAllTeams = async () => {
   try {
-    const { data } = await httpService.get('Teams')
+    const { data } = await nflApiService.get('Teams')
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
 
+export const addTeam = async (team) => {
+  team.Key = newId()
+
+  try {
+    const { data } = await httpService.post('teams', team)
     return data
   }
   catch (error) {

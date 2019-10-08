@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   import Form from '../Form'
   import { fields, stadiumFields, resetFields } from '../../../models/teams'
 
@@ -25,11 +26,21 @@
           team: resetFields(fields),
           stadium: resetFields(stadiumFields)
         },
-        handleSubmit: (team, stadium) => {console.log(team, stadium)}
+        handleSubmit: (team, stadium) => {
+          team.StadiumDetails = stadium
+
+          this.addTeam(team)
+          this.$router.push('/teams')
+        }
       }
     },
     components: {
       Form
+    },
+    methods: {
+      ...mapActions([
+        'addTeam'
+      ]),
     }
   }
 </script>

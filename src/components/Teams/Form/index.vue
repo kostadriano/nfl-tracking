@@ -32,7 +32,7 @@
     </el-form-item>
 
     <el-form-item label="Primary Color">
-      <el-input v-model="team.PrimaryColor"/>
+      <el-color-picker v-model="team.PrimaryColor"/>
     </el-form-item>
 
     <el-form-item>

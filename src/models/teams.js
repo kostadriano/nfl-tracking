@@ -19,6 +19,13 @@ export const stadiumFields = {
   PlayingSurface: "Playing Surface"
 }
 
+export const resetFields = (object) => Object.keys(object)
+  .reduce((newObject, objectKey) => {
+    newObject[objectKey] = "";
+
+    return newObject;
+  }, {})
+
 export const getAllTeams = async () => {
   try {
     const { data } = await httpService.get('Teams')

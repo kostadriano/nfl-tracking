@@ -4,7 +4,11 @@
       <i class="el-icon-back header__back-button"/>
     </router-link>
     <div class="team__header"
-      :style="`background: #${team.PrimaryColor};`"
+      :style="`background: ${
+        /#/.test(team.PrimaryColor)
+          ? team.PrimaryColor
+          : `#${team.PrimaryColor}`
+      };`"
     >
       <div
         class="team__avatar_wrapper"

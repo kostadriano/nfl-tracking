@@ -1,6 +1,6 @@
 <template>
   <div class="team__info">
-    <p v-for="key in Object.keys(fields)">
+    <p v-for="key in Object.keys(fields)" v-if="team[key]">
       <span style="font-weight: bold">{{fields[key]}}</span>: <span>{{team[key]}}</span>
     </p>
 
@@ -9,7 +9,7 @@
       Stadium
     </h2>
 
-    <p v-for="key in Object.keys(stadiumFields)">
+    <p v-for="key in Object.keys(stadiumFields)" v-if="team.StadiumDetails[key]">
       <span style="font-weight: bold">{{stadiumFields[key]}}</span>: <span>{{team.StadiumDetails[key]}}</span>
     </p>
   </div>

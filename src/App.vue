@@ -29,11 +29,13 @@
     },
     async created() {
       await this.getTeams()
+      await this.getMyTeams()
       this.loading = false
     },
     methods: {
       ...mapActions([
-        'getTeams'
+        'getTeams',
+        'getMyTeams'
       ]),
     }
   }

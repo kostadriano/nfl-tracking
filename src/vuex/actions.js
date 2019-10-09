@@ -7,6 +7,12 @@ export const getTeams = async ({ commit }) => {
   commit(mutations.RECEIVE_TEAMS, data)
 }
 
+export const getMyTeams = async ({ commit }) => {
+  const data = await TeamsRepository.getMyTeams()
+
+  commit(mutations.RECEIVE_MY_TEAMS, data)
+}
+
 export const addTeam = async ({ commit }, newTeam) => {
   const data = await TeamsRepository.addTeam(newTeam)
 

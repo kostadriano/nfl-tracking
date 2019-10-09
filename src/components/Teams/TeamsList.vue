@@ -1,5 +1,26 @@
 <template>
   <div class="teams">
+
+    <h1 class="teams__title">
+      MyTeams
+    </h1>
+    <el-row :gutter="20" class="teams__list">
+      <el-col
+        v-for="team in myTeams"
+        class="team__card-wrapper"
+        :key="team.Key"
+        :xs="20"
+        :sm="10"
+        :md="8"
+        :lg="6"
+        :xl="4"
+      >
+        <router-link :to="`teams/${team.Key}`">
+          <TeamCard :team="team"/>
+        </router-link>
+      </el-col>
+    </el-row>
+
     <h1 class="teams__title">
       Teams
     </h1>
@@ -50,7 +71,8 @@
     },
     computed: {
       ...mapGetters({
-        teams: 'getTeams'
+        teams: 'getTeams',
+        myTeams: 'getMyTeams'
       })
     }
   }

@@ -38,6 +38,16 @@ export const getAllTeams = async () => {
   }
 }
 
+export const getMyTeams = async () => {
+  try {
+    const { data } = await httpService.get('teams')
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+
 export const addTeam = async (team) => {
   team.Key = newId()
 

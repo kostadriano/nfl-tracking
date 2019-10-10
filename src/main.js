@@ -4,13 +4,13 @@ import ElementUI from 'element-ui';
 import Router from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/en'
 
 import App from './App.vue'
 import VuexStore from './vuex/store';
 import { routes } from './router-config';
 
-
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 Vue.use(Vuex);
 Vue.use(Router);
 Vue.config.productionTip = false;

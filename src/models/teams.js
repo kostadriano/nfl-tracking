@@ -1,6 +1,8 @@
-import httpService from '../services/httpService';
+import { httpService, nflApiService } from '../services/httpService';
+import newId from 'uuid/v4'
 
 export const fields = {
+  FanDuelName: "Duel Name",
   City: "City",
   Name: "Name",
   Conference: "Conference",
@@ -19,13 +21,62 @@ export const stadiumFields = {
   PlayingSurface: "Playing Surface"
 }
 
+export const resetFields = (object) => Object.keys(object)
+  .reduce((newObject, objectKey) => {
+    newObject[objectKey] = "";
+
+    return newObject;
+  }, {})
+
 export const getAllTeams = async () => {
   try {
-    const { data } = await httpService.get('Teams')
-
+    const { data } = await nflApiService.get('Teams')
     return data
   }
   catch (error) {
     console.error(error)
   }
 }
+
+export const getMyTeams = async () => {
+  try {
+    const { data } = await httpService.get('teams')
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+
+export const addTeam = async (team) => {
+  team.Key = newId()
+  team.isUserTeam = true
+
+  try {
+    const { data } = await httpService.post('teams', team)
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+
+export const updateTeam = async (id, team) => {
+  try {
+    const { data } = await httpService.put(`teams/${id}`, team)
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+
+export const deleteTeam = async (id) => {
+  try {
+    await httpService.delete(`teams/${id}`)
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+

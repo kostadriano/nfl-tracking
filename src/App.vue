@@ -2,6 +2,7 @@
   <div id="app">
     <el-menu :router="true" class="el-menu-demo" :default-active="activeLink" mode="horizontal">
       <el-menu-item index="/teams">Teams</el-menu-item>
+      <el-menu-item index="/teams/new">New Team</el-menu-item>
     </el-menu>
     <div v-loading="true" v-if="loading" />
     <router-view v-else />
@@ -28,11 +29,13 @@
     },
     async created() {
       await this.getTeams()
+      await this.getMyTeams()
       this.loading = false
     },
     methods: {
       ...mapActions([
-        'getTeams'
+        'getTeams',
+        'getMyTeams'
       ]),
     }
   }

@@ -11,3 +11,7 @@ export const addTeam = async (team) => {
 export const updateTeam = async (id, team) => {
   return await Teams.updateTeam(id, team)
 }
+
+export const deleteTeam = async (id) => {
+  return await Teams.deleteTeam(id)
+}

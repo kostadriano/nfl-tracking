@@ -20,13 +20,14 @@
         </el-button>
       </router-link>
 
-      <el-button style="margin-left: 15px"> Delete </el-button>
+      <el-button style="margin-left: 15px" v-on:click="handleDelete"> Delete </el-button>
     </div>
   </div>
 </template>
 
 <script>
   import { fields, stadiumFields } from '../../../models/teams';
+  import { mapActions } from 'vuex'
 
   export default {
     data() {
@@ -40,6 +41,17 @@
         type: Object,
         default: () => {}
       }
+    },
+    methods: {
+      handleDelete(){
+        if(window.confirm('Are you sure about that?')){
+          this.deleteTeam(this.team.id)
+          this.$router.push('/teams')
+        }
+      },
+      ...mapActions([
+        'deleteTeam'
+      ]),
     }
   }
 </script>

@@ -24,3 +24,9 @@ export const updateTeam = async ({ commit }, { id, team }) => {
 
   commit(mutations.UPDATE_TEAM, { id, updatedTeam: data })
 }
+
+export const deleteTeam = async ({ commit }, id) => {
+  await TeamsRepository.deleteTeam(id)
+
+  commit(mutations.DELETE_TEAM, id)
+}

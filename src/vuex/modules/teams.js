@@ -16,6 +16,9 @@ const mutations = {
 
       return team
     })
+  },
+  [mutationsTypes.DELETE_TEAM](state, id) {
+    state.myTeams = state.myTeams.filter(team => team.id !== id)
   }
 };
 

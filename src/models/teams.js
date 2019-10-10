@@ -71,3 +71,12 @@ export const updateTeam = async (id, team) => {
   }
 }
 
+export const deleteTeam = async (id) => {
+  try {
+    await httpService.delete(`teams/${id}`)
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+

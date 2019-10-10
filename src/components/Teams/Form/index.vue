@@ -4,7 +4,7 @@
     ref="team"
     :model="team"
   >
-    <el-form-item v-for="key in Object.keys(team)" :label="fields[key]">
+    <el-form-item v-for="key in Object.keys(fields)" :label="fields[key]">
       <el-input v-model="team[key]"/>
     </el-form-item>
 
@@ -17,7 +17,7 @@
       ref="stadium"
       :model="stadium"
     >
-      <el-form-item v-for="key in Object.keys(stadium)" :label="stadiumFields[key]">
+      <el-form-item v-for="key in Object.keys(stadiumFields)" :label="stadiumFields[key]">
         <el-input v-model="stadium[key]"/>
       </el-form-item>
     </el-form>
@@ -36,7 +36,7 @@
     </el-form-item>
 
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
+      <el-button type="primary" @click="onSubmit">{{action}}</el-button>
         <router-link to="/teams" style="padding-left: 15px">
           <el-button>
             Cancel
@@ -52,8 +52,9 @@
 
   export default {
     props:{
-      initialValues: { default: {} },
-      handleSubmit: { default: () => {}}
+      initialValues: { default: { team: {}, stadium: {} } },
+      handleSubmit: { default: () => {}},
+      action: { default: '' }
     },
     data() {
       return {

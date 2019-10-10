@@ -50,6 +50,7 @@ export const getMyTeams = async () => {
 
 export const addTeam = async (team) => {
   team.Key = newId()
+  team.isUserTeam = true
 
   try {
     const { data } = await httpService.post('teams', team)
@@ -59,3 +60,14 @@ export const addTeam = async (team) => {
     console.error(error)
   }
 }
+
+export const updateTeam = async (id, team) => {
+  try {
+    const { data } = await httpService.put(`teams/${id}`, team)
+    return data
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+

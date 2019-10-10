@@ -12,6 +12,16 @@
     <p v-for="key in Object.keys(stadiumFields)" v-if="team.StadiumDetails[key]">
       <span style="font-weight: bold">{{stadiumFields[key]}}</span>: <span>{{team.StadiumDetails[key]}}</span>
     </p>
+
+    <div v-if="team.isUserTeam">
+      <router-link :to="`/teams/${team.Key}/edit`">
+        <el-button type="primary">
+          Edit
+        </el-button>
+      </router-link>
+
+      <el-button style="margin-left: 15px"> Delete </el-button>
+    </div>
   </div>
 </template>
 

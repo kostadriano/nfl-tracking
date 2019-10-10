@@ -18,3 +18,9 @@ export const addTeam = async ({ commit }, newTeam) => {
 
   commit(mutations.ADD_TEAM, data)
 }
+
+export const updateTeam = async ({ commit }, { id, team }) => {
+  const data = await TeamsRepository.updateTeam(id, team)
+
+  commit(mutations.UPDATE_TEAM, { id, updatedTeam: data })
+}

@@ -8,6 +8,7 @@
       <Form
         :initialValues="initialValues"
         :handleSubmit="handleSubmit"
+        action="Create"
       />
     </el-main>
   </el-container>

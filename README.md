@@ -32,3 +32,9 @@ This will run your client on port 8080 and your json-server on port 3000.
 ```
 yarn run build
 ```
+
+![index](screenshots/index.png)
+![nflTeams](screenshots/nflTeams.png)
+![showTeam](screenshots/showTeam.png)
+![newTeam](screenshots/newTeam.png)
+

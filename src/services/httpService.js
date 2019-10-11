@@ -1,5 +1,5 @@
 import axios from 'axios';
-const APIKEY = 'YOURAPIKEY';
+const APIKEY = process.env.VUE_APP_API_KEY;
 
 export const httpService = axios.create({
   baseURL: 'http://localhost:3000/'
